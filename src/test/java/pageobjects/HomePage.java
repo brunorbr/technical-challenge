@@ -4,12 +4,11 @@ package pageobjects;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import pageobjects.utils.PropReader;
 
 import java.io.IOException;
 
 public class HomePage extends BasePage{
-    @FindBy(xpath = "//input[@data-test='username']")
+    @FindBy(id = "user-name")
     private WebElement usernameField;
     @FindBy(id = "password")
     private WebElement passwordField;

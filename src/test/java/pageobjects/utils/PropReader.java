@@ -1,14 +1,12 @@
 package pageobjects.utils;
 
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Properties;
 
 public class PropReader {
 
-    Properties testProps;
-    FileInputStream inputStream;
+    private Properties testProps;
 
     public PropReader(String propFile) {
         this.testProps = new Properties();
@@ -29,5 +27,9 @@ public class PropReader {
 
     public String getPassword(){
         return testProps.getProperty("password");
+    }
+
+    public Double getTshirtBaseValue(){
+        return Double.parseDouble(testProps.getProperty("base_tshirt_value"));
     }
 }

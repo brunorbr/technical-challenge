@@ -6,22 +6,43 @@ import org.openqa.selenium.support.FindBy;
 
 
 public class ShopPage extends BasePage{
-    @FindBy(className = "elemnt-list")
-    private WebElement backpackProduct;
-    @FindBy(id = "")
-    private WebElement addBackpackToCartButton;
-    @FindBy(className = "")
-    private WebElement bikelightProduct;
-    @FindBy(id = "")
-    private WebElement addBikeLightButton;
-    @FindBy(id = "")
-    private WebElement fleeceJacketProduct;
+    @FindBy(id = "remove-sauce-labs-backpack")
+    private WebElement backPackRemoveButton;
+    @FindBy(id = "add-to-cart-sauce-labs-backpack")
+    private WebElement backpackAddButton;
+    @FindBy(id = "add-to-cart-sauce-labs-bolt-t-shirt")
+    private WebElement tShirtAddButton;
+    @FindBy(id = "shopping_cart_container")
+    private WebElement shoppingCartButton;
+    @FindBy(xpath = "//span[@class='shopping_cart_badge']")
+    private WebElement shoppingCartBadge;
 
     public ShopPage(WebDriver browser){
         initElements(browser);
     }
 
-    public void addProductToCart(){
+    public void addtShirtToCart(){
+        tShirtAddButton.click();
+    }
 
+    public void addBackpackToCart(){
+        backpackAddButton.click();
+    }
+
+    public void removeBackPackFromCart(){
+        backPackRemoveButton.click();
+    }
+
+    public CartPage clickOnCartButton(){
+        shoppingCartButton.click();
+        return new CartPage(browser);
+    }
+
+    public WebElement getShoppingCartBadge() {
+        return shoppingCartBadge;
+    }
+
+    public WebElement getBackpackAddButton(){
+        return backpackAddButton;
     }
 }

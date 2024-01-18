@@ -10,7 +10,8 @@ public abstract class BasePage {
     protected WebDriver browser;
     protected PropReader properties;
 
-    public void initElements(WebDriver browser){
+    public void initElements(WebDriver driver){
+        this.browser = driver;
         PageFactory.initElements(browser, this);
     }
 
