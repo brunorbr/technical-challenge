@@ -8,7 +8,6 @@ import java.io.IOException;
 
 public abstract class BasePage {
     protected WebDriver browser;
-    protected PropReader properties;
 
     public void initElements(WebDriver driver){
         this.browser = driver;

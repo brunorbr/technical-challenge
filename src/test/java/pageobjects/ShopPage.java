@@ -1,5 +1,6 @@
 package pageobjects;
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -22,6 +23,10 @@ public class ShopPage extends BasePage{
     }
 
     public void addtShirtToCart(){
+        ((JavascriptExecutor) browser)
+                .executeScript(
+                        "arguments[0].scrollIntoView(true);",
+                        tShirtAddButton);
         tShirtAddButton.click();
     }
 

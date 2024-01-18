@@ -9,33 +9,29 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class BrowserManager {
-    private WebDriver browser;
+    private static WebDriver browser;
 
-    public BrowserManager() {
-        selectBrowser();
-    }
-
-    public WebDriver selectBrowser() {
+    public static WebDriver selectBrowser() {
         String selectedBrowser = System.getProperty(
                 "browser",
                 "chrome");
         switch (selectedBrowser) {
 
             case "firefox":
-                this.browser = new FirefoxDriver();
+                browser = new FirefoxDriver();
                 break;
             case "chrome-mobile":
                 Map<String, String> device = new HashMap<>();
                 device.put("deviceName", "Nexus 5");
                 ChromeOptions options = new ChromeOptions();
                 options.setExperimentalOption("mobileEmulation", device);
-                this.browser = new ChromeDriver(options);
+                browser = new ChromeDriver(options);
                 break;
             default:
-                this.browser = new ChromeDriver();
+                browser = new ChromeDriver();
                 break;
         }
-        return this.browser;
+        return browser;
     }
 }
 
