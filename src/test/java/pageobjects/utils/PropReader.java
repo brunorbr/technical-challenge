@@ -8,10 +8,15 @@ import java.util.Properties;
 public class PropReader {
 
     Properties testProps;
+    FileInputStream inputStream;
 
-    public PropReader(String propFile) throws IOException {
+    public PropReader(String propFile) {
         this.testProps = new Properties();
-        testProps.load(new FileInputStream(propFile));
+        try {
+            testProps.load(new FileInputStream(propFile));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     public String getBaseURL(){
